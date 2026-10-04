@@ -16,6 +16,8 @@ header{border-bottom:1px solid var(--line)}nav{min-height:82px;display:flex;just
 @media(max-width:600px){nav{min-height:90px;align-items:flex-start;justify-content:center;flex-direction:column;gap:8px;padding-top:15px!important;padding-bottom:15px!important}.identity{font-size:15px}.identity span{display:none}.navlinks{font-size:12px;gap:24px}.hero{padding:29px 0 33px}.hero h1{font-size:46px}.hero p{font-size:15px}.section-head{display:block}.section-head p{margin-top:8px}.project-copy{grid-template-columns:1fr;gap:17px;padding:22px}.project h3{font-size:29px;margin-top:6px}.gallery{padding:0 12px 15px;gap:20px}.photo-pair,.side-grid{grid-template-columns:1fr}.photo-pair{gap:20px}.photo-pair .media{aspect-ratio:4/3}.video-slot{aspect-ratio:16/10}.template-media{aspect-ratio:2/1;margin:0 12px 15px}.footer-inner{flex-direction:column;gap:10px}#side-projects{margin-top:38px}footer{margin-top:38px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{body{background:white}.wrap{padding:0}.hero{padding:20px 0}h1{font-size:38px}.navlinks,.skip,.template{display:none}.project-copy,figure,.media{max-height:260px}.side-grid{display:block}.side-grid .project{margin-bottom:20px}footer{margin-top:25px}}
+.media.fitted{aspect-ratio:auto}.media.fitted img{height:auto}.garden-photo{aspect-ratio:auto}.garden-photo img{height:auto;max-height:620px;width:100%;object-fit:contain}.media.video-slot{aspect-ratio:16/9}.side-grid .media a{display:block;width:100%;height:100%;min-height:0}.side-grid .media a img{object-fit:contain}video:focus-visible{outline:3px solid #698e30;outline-offset:3px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -28,7 +30,7 @@ header{border-bottom:1px solid var(--line)}nav{min-height:82px;display:flex;just
   Photos may also use embedded data URLs to keep everything in one file; hosted video links avoid very large HTML files.
   Update captions to match the media supplied. Do not describe staged demonstrations as original deployment footage.
   OPTIONAL CARDS: Find BEGIN / END OPTIONAL ENGINEERING or SIDE PROJECT below.
-  Fill bracketed fields, replace the media placeholder, and remove the template label and class when ready.
+  Remove the hidden attribute, fill bracketed fields, replace the media placeholder, and remove the template label and class when ready.
   To hide a card while keeping its source, add hidden to its article tag. To remove it, delete its marked block.
   Duplicate either block to add a project; give it a unique id. A code link is optional.
   No placeholder link is active. To add one, use: <a href="YOUR_ACTUAL_URL">Code and project notes ↗</a>
@@ -42,23 +44,17 @@ header{border-bottom:1px solid var(--line)}nav{min-height:82px;display:flex;just
 <article class="project" id="weather-station">
 <div class="project-copy"><div><div class="eyebrow">01</div><h3>Weather Station</h3></div><div><p>I built a weather station that records temperature, humidity, pressure, and rainfall. I assembled the sensors and wrote the logging and analysis software to study how local weather data could be used for rain detection.</p><a href="https://github.com/KrishnaChouturi/ai-weather-station">Code and project notes ↗</a></div></div>
 <div class="gallery" aria-label="Weather station media">
-<div class="photo-pair">
-<figure><div class="media" data-media-slot="weather-outdoors"><span class="media-label">Station outdoors<small>Add photo</small></span></div><figcaption>Weather readings recorded every five minutes.</figcaption></figure>
-<figure><div class="media" data-media-slot="weather-enclosure"><span class="media-label">Inside the enclosure<small>Add photo</small></span></div><figcaption>Controller, sensor wiring, and data storage.</figcaption></figure>
-</div>
-<figure><div class="media video-slot" data-media-slot="weather-video"><span class="media-label">Rain gauge demonstration<small>Add video</small></span></div><figcaption>Suggested clip: tip the gauge and show the recorded reading.</figcaption></figure>
-</div>
-</article>
+<figure><div class="media fitted"><img src="media/weather-outdoors.png" alt="Weather station on the deck, with the rain gauge and covered electronics connected by a cable" width="1072" height="814" loading="lazy"></div><figcaption>The outdoor station, with the rain gauge connected to the covered electronics.</figcaption></figure>
+<figure><div class="media fitted"><img src="media/weather-hardware.png" alt="Rain gauge wired to a breadboard controller and microSD module" width="1476" height="840" loading="lazy"></div><figcaption>Rain gauge, controller, sensor wiring, and microSD module during assembly.</figcaption></figure>
+</div></article>
 <article class="project" id="smart-garden">
 <div class="project-copy"><div><div class="eyebrow">02</div><h3>Smart Garden<br>Advisory System</h3></div><div><p>I built a soil-monitoring device and web dashboard to help decide when to water a garden. It combines soil moisture readings with the weather forecast to provide those watering suggestions every 3 hours.</p><a href="https://github.com/KrishnaChouturi/Smart-Garden-Advisory-System">Code and project notes ↗</a></div></div>
 <div class="gallery" aria-label="Smart Garden media">
-<figure><div class="media" data-media-slot="garden-setup"><span class="media-label">System in the garden<small>Add photo</small></span></div><figcaption>Soil sensing at one location in the garden.</figcaption></figure>
-<figure><div class="media" data-media-slot="garden-dashboard"><span class="media-label">Dashboard screenshot<small>Add image</small></span></div><figcaption>Soil moisture, weather, and the watering recommendation.</figcaption></figure>
-<figure><div class="media video-slot" data-media-slot="garden-video"><span class="media-label">From soil reading to recommendation<small>Add video</small></span></div><figcaption>Suggested clip: show the reading, forecast, and resulting advice.</figcaption></figure>
-</div>
-</article>
+<figure><div class="media garden-photo"><img src="media/garden-installation.png" alt="Smart Garden enclosure and connected soil probe among plants in a raised garden bed" width="794" height="1058" loading="lazy"></div><figcaption>The soil-monitoring device installed in the garden.</figcaption></figure>
+<figure><div class="media video-slot"><video controls playsinline preload="metadata" poster="media/garden-poster.jpg" aria-label="Smart Garden demonstration" aria-describedby="garden-video-caption"><source src="media/smart-garden-demo.mp4" type="video/mp4">Your browser does not support embedded video. <a href="media/smart-garden-demo.mp4">Download the demo</a>.</video></div><figcaption id="garden-video-caption">30-second demonstration: testing the sensor, comparing dry and wet soil readings, and selecting a manual watering recommendation. Silent video with on-screen explanations.</figcaption></figure>
+</div></article>
 <!-- BEGIN OPTIONAL ENGINEERING: Fill in or remove this entire article. -->
-<article class="project template" id="engineering-template">
+<article hidden class="project template" id="engineering-template">
 <div class="project-copy"><div><span class="template-label">Optional project template</span><h3>[Engineering project name]</h3></div><div><p>[What it does and what you built for the project goal. One or two short sentences.]</p><div class="fill">[Status: prototype / in progress / complete]<br>[Optional code or project-notes link]</div></div></div>
 <div class="media template-media" data-media-slot="engineering-extra"><span class="media-label">[Project photo or demonstration]<small>For example: a PCB or handheld build</small></span></div>
 </article>
@@ -68,11 +64,19 @@ header{border-bottom:1px solid var(--line)}nav{min-height:82px;display:flex;just
 <div class="section-head"><h2 id="side-title">Side projects</h2><p>Games and other software.</p></div>
 <div class="side-grid">
 <article class="project" id="world-cup">
-<div class="media" data-media-slot="world-cup-results"><span class="media-label">Bracket and advancement probabilities<small>Add results screenshot</small></span></div>
+<div class="media" data-media-slot="world-cup-results"><a href="media/world-cup.png" aria-label="Open full World Cup Simulator screenshot"><img src="media/world-cup.png" alt="World Cup Simulator showing team selection for a 32-team bracket" width="810" height="1058" loading="lazy"></a></div>
 <div class="project-copy"><h3>World Cup Simulator</h3><p>I built a tournament simulator that uses team ratings to estimate match outcomes. It lets me choose a bracket and view each team’s chances of advancing.</p><a href="https://github.com/KrishnaChouturi/world-cup-predictor">View code ↗</a></div>
 </article>
+<article class="project" id="studyvault">
+<div class="media"><a href="media/studyvault.png" aria-label="Open full StudyVault screenshot"><img src="media/studyvault.png" alt="StudyVault drawing workspace with handwritten calculus and a multiple-choice answer panel" loading="lazy" width="2048" height="1093"></a></div>
+<div class="project-copy"><h3>StudyVault</h3><p>A study notebook I made with AI and used for practice tests and notes. It combines drawing, erasing, and recording answer choices with organized sections and local saves.</p><a href="https://github.com/KrishnaChouturi/studyvault">View code and instructions ↗</a></div>
+</article>
+<article class="project" id="two-thrones">
+<div class="media"><img src="media/two-thrones.png" alt="The Legend of Two Thrones title screen" loading="lazy"></div>
+<div class="project-copy"><h3>The Legend of Two Thrones</h3><p>A game I made for a class assignment using free art and animation resources. At least half of the code and the home screen were made with AI.</p><a href="https://king0fgold.itch.io/a-legend-of-two-thrones">Play on itch.io ↗</a> · <a href="https://github.com/KrishnaChouturi/the-legend-of-two-thrones">View code ↗</a></div>
+</article>
 <!-- BEGIN OPTIONAL SIDE PROJECT: Fill in or remove this entire article. -->
-<article class="project template" id="side-project-template">
+<article hidden class="project template" id="side-project-template">
 <div class="media" data-media-slot="side-extra"><span class="media-label">[Screenshot or gameplay clip]<small>Add media</small></span></div>
 <div class="project-copy"><span class="template-label">Optional project template</span><h3>[Project or game name]</h3><p>[What it does and what you made. One or two short sentences.]</p><div class="fill">[Optional code or demo link]</div></div>
 </article>
@@ -83,3 +87,4 @@ header{border-bottom:1px solid var(--line)}nav{min-height:82px;display:flex;just
 <footer><div class="wrap footer-inner"><span>Krishna Chouturi</span><a href="https://github.com/KrishnaChouturi">GitHub ↗</a><a href="#main">Back to top ↑</a></div></footer>
 </body>
 </html>
+
