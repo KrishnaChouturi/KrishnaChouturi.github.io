@@ -1,6 +1,8 @@
 # Krishna Chouturi — Portfolio
 
-Private portfolio source. Publishing has not been enabled as part of this update.
+View the portfolio at **https://krishnachouturi.github.io/**. Photos and the Smart Garden video open directly on the website; no download is needed.
+
+Published through GitHub Pages from the main branch.
 
 ## Preview on your computer
 
